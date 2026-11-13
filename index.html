@@ -51,6 +51,11 @@ h2{margin:0;font-size:clamp(28px,4vw,40px);line-height:1}
 .cores{display:flex;flex-wrap:wrap;gap:7px;padding-left:102px}
 .cor{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #d9cfee;cursor:pointer;padding:0}
 .cor.on{box-shadow:0 0 0 3px var(--rosa);transform:scale(1.12)}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;max-height:46vh;overflow-y:auto;padding:4px}
+.mini{border:3px solid transparent;border-radius:16px;background:#fbf8ff;padding:4px;cursor:pointer;display:grid;gap:0;justify-items:center}
+.mini svg{width:100%;height:auto}
+.mini span{font-size:14px;font-weight:700;line-height:1.1;text-align:center}
+.mini.on{border-color:var(--rosa);background:#fff0f7}
 #mundo{width:100%;max-width:1400px;height:min(62vh,60vw);min-height:240px;border-radius:24px;overflow:hidden;box-shadow:0 10px 30px #6b2fb333;background:#7fd3ff}
 #mundo svg{display:block;width:100%;height:100%;touch-action:none}
 .controle{display:flex;gap:24px;align-items:center}
@@ -211,6 +216,16 @@ function telaCarro(){
   const o = document.getElementById('opcCarro'); o.innerHTML = '';
   o.append(linha('Modelo', A.CARROS, E.carro.tipo, v => { E.carro.tipo = v; salvar(); telaCarro(); },
     A.CORES.carro, E.carro.cor, v => { E.carro.cor = v; salvar(); telaCarro(); }));
+  // galeria com todos os carros na cor escolhida
+  const g = document.createElement('div'); g.className = 'galeria';
+  A.CARROS.forEach((nome, i) => {
+    const b = document.createElement('button'); b.className = 'mini' + (i === E.carro.tipo ? ' on' : '');
+    b.innerHTML = `<svg viewBox="40 40 640 340">${A.carro(i, E.carro.cor, [null, null, null])}</svg><span>${nome}</span>`;
+    b.onclick = () => { E.carro.tipo = i; salvar(); telaCarro(); };
+    g.appendChild(b);
+  });
+  o.appendChild(g);
+  const sel = g.querySelector('.on'); if (sel) sel.scrollIntoView({block: 'nearest', inline: 'center'});
 }
 
 // ---------- cidade ----------
