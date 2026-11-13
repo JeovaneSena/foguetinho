@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente do fundo do selo -->
+    <radialGradient id="purpleGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#803dd4"/>
+      <stop offset="70%" stop-color="#6b2fb3"/>
+      <stop offset="100%" stop-color="#4e1d87"/>
+    </radialGradient>
+
+    <!-- Gradiente da chama -->
+    <linearGradient id="flameGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff275"/>
+      <stop offset="45%" stop-color="#ffc83d"/>
+      <stop offset="100%" stop-color="#ff4f4f"/>
+    </linearGradient>
+
+    <!-- Gradiente da janela do foguete -->
+    <linearGradient id="windowGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dff7ff"/>
+      <stop offset="50%" stop-color="#9be7ff"/>
+      <stop offset="100%" stop-color="#5ec5eb"/>
+    </linearGradient>
+
+    <!-- Sombra suave para o selo -->
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#2a0d4a" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <!-- Base do Selo Redondo -->
+    <circle cx="256" cy="256" r="236" fill="url(#purpleGlow)" stroke="#542091" stroke-width="4"/>
+
+    <!-- Borda Tracejada Amarela Externa -->
+    <circle cx="256" cy="256" r="220" fill="none" stroke="#ffc83d" stroke-width="7" stroke-dasharray="14 12" stroke-linecap="round"/>
+
+    <!-- Aro interno fino de destaque -->
+    <circle cx="256" cy="256" r="206" fill="none" stroke="#ff4f9a" stroke-width="2.5" opacity="0.6"/>
+  </g>
+
+  <!-- Estrelinhas e Brilhos de Fundo no Selo -->
+  <!-- Estrela 1 (topo esquerda) -->
+  <path d="M 120 130 Q 120 145 105 145 Q 120 145 120 160 Q 120 145 135 145 Q 120 145 120 130 Z" fill="#ffc83d"/>
+  <circle cx="150" cy="115" r="4" fill="#ffffff" opacity="0.8"/>
+  <!-- Estrela 2 (topo direita) -->
+  <path d="M 390 140 Q 390 152 378 152 Q 390 152 390 164 Q 390 152 402 152 Q 390 152 390 140 Z" fill="#ffc83d"/>
+  <circle cx="360" cy="120" r="5" fill="#ffffff" opacity="0.9"/>
+  <!-- Pontos de brilho adicionais -->
+  <circle cx="95" cy="230" r="3.5" fill="#ffc83d" opacity="0.75"/>
+  <circle cx="415" cy="235" r="4" fill="#ffc83d" opacity="0.75"/>
+
+  <!-- FOGUETINHO NO CENTRO -->
+  <g id="foguete-central">
+    <!-- Chama do foguete -->
+    <!-- Chama externa -->
+    <path d="M 234 290 Q 215 345 256 370 Q 297 345 278 290 Z" fill="url(#flameGrad)"/>
+    <!-- Chama interna -->
+    <path d="M 244 290 Q 235 330 256 348 Q 277 330 268 290 Z" fill="#ffffff" opacity="0.9"/>
+
+    <!-- Bocal do motor -->
+    <path d="M 238 285 L 274 285 L 270 294 L 242 294 Z" fill="#542091"/>
+
+    <!-- Asas Rosa (Aletas) -->
+    <!-- Asa Esquerda -->
+    <path d="M 224 240 C 200 242 170 270 178 300 C 196 304 216 295 228 285 Z" fill="#ff4f9a" stroke="#6b2fb3" stroke-width="3"/>
+    <!-- Asa Direita -->
+    <path d="M 288 240 C 312 242 342 270 334 300 C 316 304 296 295 284 285 Z" fill="#ff4f9a" stroke="#6b2fb3" stroke-width="3"/>
+
+    <!-- Corpo do Foguete (Fusolagem Branca) -->
+    <path d="M 256 100 C 225 150 220 230 224 288 L 288 288 C 292 230 287 150 256 100 Z" fill="#ffffff" stroke="#3b1f5c" stroke-width="4"/>
+
+    <!-- Sombra suave no corpo para dar volume 3D infantil -->
+    <path d="M 256 100 C 275 145 285 220 288 288 L 272 288 C 272 210 260 140 256 100 Z" fill="#e8e0f5"/>
+
+    <!-- Ponta Rosa do Foguete -->
+    <path d="M 256 100 C 242 122 236 142 232 158 Q 256 164 280 158 C 276 142 270 122 256 100 Z" fill="#ff4f9a" stroke="#3b1f5c" stroke-width="3"/>
+
+    <!-- Janela Azul-Clara (Vigília) -->
+    <!-- Aro Amarelo da Janela -->
+    <circle cx="256" cy="205" r="28" fill="#ffc83d" stroke="#3b1f5c" stroke-width="3"/>
+    <!-- Vidro Azul Claro -->
+    <circle cx="256" cy="205" r="22" fill="url(#windowGlass)"/>
+    <!-- Reflexo de Brilho no Vidro -->
+    <ellipse cx="251" cy="198" rx="7" ry="11" transform="rotate(-30 251 198)" fill="#ffffff" opacity="0.85"/>
+
+    <!-- Faixa decorativa no corpo -->
+    <path d="M 226 270 Q 256 276 286 270 L 287 278 Q 256 284 225 278 Z" fill="#ff4f9a"/>
+  </g>
+
+  <!-- TIPOGRAFIA EMBAIXO -->
+  <!-- Faixa de Fundo para o Texto dar legibilidade total -->
+  <path d="M 120 380 Q 256 365 392 380 Q 405 440 256 448 Q 107 440 120 380 Z" fill="#441375" opacity="0.4"/>
+
+  <!-- "FOGUETINHO" - Letras brancas gordas com contorno escuro e relevo -->
+  <g id="texto-foguetinho">
+    <!-- Efeito de sombra do texto -->
+    <text x="256" y="407" text-anchor="middle" font-family="'Nunito', 'Arial Rounded MT Bold', 'Montserrat', sans-serif" font-weight="900" font-size="46" fill="#2d0b52" letter-spacing="3">FOGUETINHO</text>
+    <!-- Texto principal com contorno roxo escuro -->
+    <text x="256" y="404" text-anchor="middle" font-family="'Nunito', 'Arial Rounded MT Bold', 'Montserrat', sans-serif" font-weight="900" font-size="46" fill="#ffffff" stroke="#3b1f5c" stroke-width="6" stroke-linejoin="round" paint-order="stroke fill" letter-spacing="3">FOGUETINHO</text>
+  </g>
+
+  <!-- "educativo" em amarelo -->
+  <g id="texto-educativo">
+    <!-- Sombra sutil -->
+    <text x="256" y="437" text-anchor="middle" font-family="'Nunito', 'Arial Rounded MT Bold', 'Montserrat', sans-serif" font-weight="800" font-size="24" fill="#3b1f5c" letter-spacing="5">educativo</text>
+    <!-- Texto amarelo brilhante -->
+    <text x="256" y="435" text-anchor="middle" font-family="'Nunito', 'Arial Rounded MT Bold', 'Montserrat', sans-serif" font-weight="800" font-size="24" fill="#ffc83d" stroke="#3b1f5c" stroke-width="2.5" stroke-linejoin="round" paint-order="stroke fill" letter-spacing="5">educativo</text>
+  </g>
+
+  <!-- Estrelinhas fofas ao lado de "educativo" -->
+  <circle cx="160" cy="428" r="3.5" fill="#ffc83d"/>
+  <circle cx="352" cy="428" r="3.5" fill="#ffc83d"/>
+</svg>
